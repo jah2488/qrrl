@@ -10,6 +10,7 @@ end
 gem 'jquery-rails'
 gem "haml", ">= 3.1.4"
 gem "haml-rails", ">= 0.3.4", :group => :development
+gem "pry", :group => :development
 gem "cucumber-rails", ">= 1.2.1", :group => :test
 gem "capybara", ">= 1.1.2", :group => :test
 gem "database_cleaner", ">= 0.7.1", :group => :test
