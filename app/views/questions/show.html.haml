@@ -1,0 +1,8 @@
+#question
+  %h2= "#{@question.title}?"
+  - if @question.type == "Poll"
+    - @question.choices.each do |opt|
+      %p= opt
+  - else
+    = @question.body
+  

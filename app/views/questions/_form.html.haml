@@ -1,0 +1,36 @@
+= form_for @question do |f|
+  -if @question.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@question.errors.count, "error")} prohibited this question from being saved:"
+      %ul
+        - @question.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label      :title
+    = f.text_field :title
+  .field
+    = f.label      :type
+    = f.select     :type, ["Poll", "Short", "Rant"]
+  .field
+    = f.label      :body
+    = f.text_area  :body, rows: 5
+  .field.choices
+    = f.label      :choices
+    = f.fields_for :choices do |choice|
+      .field.options
+        %p
+          = choice.label "Opt 1"
+          = choice.text_field :'0', placeholder: "Yes", class: "question-choice-option"
+        %p
+          = choice.label "Opt 2"
+          = choice.text_field :q1, placeholder: "No",  class: "question-choice-option"
+    = link_to " Add","javascript:void(0)", class: "icon-plus-sign add-choice"
+  .field
+    = f.label      :tags
+    = f.text_field :tags
+  .field
+    = f.label      :private
+    = f.check_box  :private
+  .actions
+    = f.submit 'Ask', class: 'btn'

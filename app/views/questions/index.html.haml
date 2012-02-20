@@ -1,0 +1,6 @@
+%h1 My Questions
+%p= "All #{number_to_human(@questions.count)} of them"
+%p= link_to "new question", new_question_path
+- @questions.each do |question|
+  %p
+    question.title
