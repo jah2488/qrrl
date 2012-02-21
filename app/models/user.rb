@@ -1,6 +1,7 @@
 class User
   include Mongoid::Document
-  # include Mongoid::Slug
+  include Mongoid::Slug
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -38,7 +39,7 @@ class User
   field :love,    :type => Integer
   field :q_count, :type => Integer
   field :a_count, :type => Integer
-  
+  slug  :name 
   has_many :questions
   has_many :answers
   has_many :badges

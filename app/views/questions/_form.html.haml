@@ -12,7 +12,10 @@
   .field
     = f.label      :type
     = f.select     :type, ["Poll", "Short", "Rant"]
-  .field
+  .field.short{ style: 'display:none;'}
+    = f.label      :body
+    = f.text_field :body
+  .field.long{  style: 'display:none;'}
     = f.label      :body
     = f.text_area  :body, rows: 5
   .field.choices
